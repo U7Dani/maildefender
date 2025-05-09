@@ -1,3 +1,12 @@
+![image](https://github.com/user-attachments/assets/69c6ded0-82d0-40f9-a45a-33f6e54c2495)
+![image](https://github.com/user-attachments/assets/11b8eefc-38da-4a48-8816-2e5ed30b1455)
+![image](https://github.com/user-attachments/assets/ae9facce-4a0f-47d7-b1a7-ef1ae77ae6be)
+![image](https://github.com/user-attachments/assets/d052e5ee-d4cd-424b-b9fb-95db33669c66)
+![image](https://github.com/user-attachments/assets/370437d7-65a7-47a7-b043-14a38f8090df)
+
+
+
+
 # 🛡️ MailDefender
 
 **MailDefender** es una herramienta OSINT defensiva para Blue Team y SOC diseñada para analizar correos electrónicos sospechosos. Verifica exposición pública en brechas, datos WHOIS y registros DNS, e integra herramientas como `h8mail` y `theHarvester`.
