@@ -1,3 +1,30 @@
+# ─────────────────────────────────────────────────────────
+# 🛡️  MailDefender - Banner e información del proyecto
+# ─────────────────────────────────────────────────────────
+
+from art import text2art
+from rich.console import Console
+from rich.text import Text
+import time
+
+console = Console()
+
+def mostrar_banner():
+    """Muestra el banner inicial con info del proyecto"""
+    banner = text2art("Mail Defender", font="big")
+    styled_banner = Text(banner, style="bold bright_blue on black")
+    console.print(styled_banner)
+    console.print("\U0001F510 [bold cyan]MailDefender[/bold cyan] - Email OSINT Tool for Blue Team & SOC", style="bold white")
+    console.print("🛠️  Versión: [green]1.0[/green]")
+    console.print("👨‍💻 Autor: [magenta]U7Dani[/magenta] · [link=https://github.com/U7Dani/maildefender]GitHub Repo[/link]\n")
+
+def mostrar_resumen(total, comprometidos, tiempo):
+    """Muestra resumen de la ejecución"""
+    console.rule("Resumen de ejecución")
+    console.print(f"📨 Correos analizados: [bold]{total}[/bold]", style="white")
+    console.print(f"⚠️  Correos comprometidos: [bold red]{comprometidos}[/bold red]", style="red")
+    console.print(f"⏱️  Tiempo total: [green]{tiempo:.2f} segundos[/green]\n")
+
 # MailDefender: Herramienta OSINT defensiva para SOC
 
 """
@@ -117,6 +144,7 @@ def analizar_correo(email):
     mostrar_resultados(email, reputacion, whois_data, dns_data, h8, th)
 
 def main():
+    mostrar_banner()  # 👈 Aquí se muestra el banner al iniciar
     parser = argparse.ArgumentParser()
     parser.add_argument("-e", "--email", help="Correo a analizar")
     parser.add_argument("-f", "--file", help="Archivo con correos")
@@ -147,3 +175,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
