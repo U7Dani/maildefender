@@ -7,58 +7,126 @@
 
 
 
-# 🛡️ MailDefender
+# 🛡️ MailDefender (Multiplataforma: Windows y Linux)
 
-**MailDefender** es una herramienta OSINT defensiva para Blue Team y SOC diseñada para analizar correos electrónicos sospechosos. Verifica exposición pública en brechas, datos WHOIS y registros DNS, e integra herramientas como `h8mail` y `theHarvester`.
+**MailDefender** es una herramienta OSINT defensiva para Blue Team y SOC que analiza correos electrónicos sospechosos usando WHOIS, DNS, h8mail y theHarvester. Su objetivo es detectar indicios de phishing o exposición pública.
 
 ---
 
-## 🚀 Funcionalidades
+## 🚀 Funcionalidades principales
 
-- ✔️ Análisis de un solo correo electrónico (`-e`)
+- ✔️ Análisis individual de correos (`-e`)
 - 📁 Análisis masivo desde archivo (`-f`)
 - 🔍 WHOIS del dominio
 - 🌐 DNS Lookup: MX, SPF y DMARC
 - 🔓 Verificación de filtraciones públicas con `h8mail`
-- 🛰️ Recopilación de correos y hosts con `theHarvester`
-- 🧪 Modo demo (`--demo`) para pruebas rápidas
+- 🛰️ Recopilación OSINT con `theHarvester`
+- 🧪 Modo demo (`--demo`)
+- 🎨 Consola enriquecida con `rich`
 
 ---
 
-## 📦 Instalación
+# 🪟 Versión para Windows
+
+### ✅ Requisitos
+
+- Python 3.8 o superior
+- Consola CMD o PowerShell
+- Conexión a Internet
+
+### 🧩 Instalación
 
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/tuusuario/maildefender.git
+git clone https://github.com/U7Dani/maildefender.git
 cd maildefender
 ```
 
-2. Instala dependencias:
+2. Instala las dependencias de Python:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Asegúrate de tener instaladas estas herramientas:
-   - [`h8mail`](https://github.com/khast3x/h8mail): `pip install h8mail`
-   - [`theHarvester`](https://github.com/laramies/theHarvester): clónala en `maildefender/theHarvester/`
+3. Verifica que las herramientas estén disponibles:
 
----
+- `h8mail`: `pip install h8mail`
+- `theHarvester`: clónala en el directorio principal:
+```bash
+git clone https://github.com/laramies/theHarvester.git
+```
 
-## 🧪 Ejemplos de uso
+### ▶️ Ejecución
 
-### Análisis individual
+Analizar un correo individual:
 ```bash
 python maildefender.py -e correo@example.com
 ```
 
-### Análisis masivo
+Analizar varios desde archivo:
 ```bash
 python maildefender.py -f correos.txt
 ```
 
-### Modo demo (correo comprometido de prueba)
+Modo demostración:
+```bash
+python maildefender.py --demo
+```
+
+---
+
+# 🐧 Versión para Linux
+
+### ✅ Requisitos
+
+- Python 3.8 o superior
+- Terminal Bash
+- Conexión a Internet
+
+### 🧩 Instalación
+
+1. Instala herramientas del sistema:
+
+```bash
+sudo apt update
+sudo apt install whois dnsutils
+```
+
+2. Clona el repositorio:
+
+```bash
+git clone https://github.com/U7Dani/maildefender.git
+cd maildefender
+```
+
+3. Instala dependencias de Python:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Herramientas externas:
+
+- `h8mail`: `pip install h8mail`
+- `theHarvester`:
+```bash
+git clone https://github.com/laramies/theHarvester.git
+```
+
+### ▶️ Ejecución
+
+Analizar un correo:
+```bash
+python maildefender.py -e correo@example.com
+```
+
+Analizar archivo de correos:
+```bash
+python maildefender.py -f correos.txt
+```
+
+Ejecutar modo demo:
 ```bash
 python maildefender.py --demo
 ```
@@ -67,22 +135,33 @@ python maildefender.py --demo
 
 ## 📄 Salida esperada
 
-- Datos WHOIS (nombre, país, creación)
-- Registros MX, SPF y DMARC
-- Resultado de `h8mail` (correos relacionados o comprometidos)
-- Resultado de `theHarvester` (correos/hosts públicos)
-- Consola enriquecida con `rich`
+- Información WHOIS del dominio
+- Registros DNS: MX, SPF, DMARC
+- Resultados de exposición en bases de datos filtradas (`h8mail`)
+- Emails/hosts públicos encontrados con `theHarvester`
+- Consola clara y visual gracias a `rich`
 
 ---
 
-## 🛠 Requisitos
+## 📦 Estructura del proyecto
 
-- Python 3.7+
-- Conexión a Internet
-- Acceso a consola
+```
+maildefender/
+├── maildefender.py
+├── requirements.txt
+├── README.md
+└── theHarvester/  ← (opcional si se integra)
+```
+
+---
+
+## 👨‍💻 Autor
+
+Desarrollado por [@U7Dani](https://github.com/U7Dani)
 
 ---
 
 ## 📘 Licencia
 
-Proyecto open-source bajo licencia MIT.
+Distribuido bajo licencia MIT.
+
